@@ -195,12 +195,16 @@ education.displaySchools = function() {
 			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[entry].degree);
 			var formattedDate = HTMLschoolDates.replace("%data%", education.schools[entry].gradYear);
 			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[entry].location);
-			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[entry].majors[0]);
 			$(".education-entry:last").append(formattedName);
 			$(".education-entry:last").append(formattedDegree);
 			$(".education-entry:last").append(formattedDate);
 			$(".education-entry:last").append(formattedLocation);
-			$(".education-entry:last").append(formattedMajor);
+			if (education.schools[entry].majors.length > 0) {
+				for (major in education.schools[entry].majors) {
+					var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[entry].majors[major]);
+					$(".education-entry:last").append(formattedMajor);
+				}
+			}
 		}
 	}
 }
