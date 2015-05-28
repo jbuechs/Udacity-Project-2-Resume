@@ -76,23 +76,23 @@ var education = {
 			"name" : "Drexel University",
 			"location" : "Philadelphia, PA",
 			"degree" : "MS in Learning Technologies",
-			"majors" : ["Concentration: Learning in Game-Based Environments"],
+			"majors" : ["Learning in Game-Based Environments"],
 			"gradYear" : 2013,
 			"url" : "http://www.drexel.com/online-degrees/education-degrees/ms-learningtech/index.aspx"
 		},
 		{
 			"name" : "University of Virginia",
 			"location" : "Charlottesville, VA",
-			"major" : "Masters in Teaching",
-			"minor" : "Elementary Education (k-8)",
+			"degree" : "Masters in Teaching",
+			"majors" : ["Elementary Education (k-8)"],
 			"gradYear" : 2002,
 			"url" : "http://curry.virginia.edu/academics/degrees/master-of-teaching/master-of-teaching-elementary-education"
 		},
 		{
 			"name" : "University of Virginia",
-			"city" : "Charlottesville, VA",
-			"major" : "BA",
-			"minor" : "Psychology",
+			"location" : "Charlottesville, VA",
+			"degree" : "BA",
+			"majors" : ["Psychology"],
 			"gradYear" : 2002,
 			"url" : "http://college.artsandsciences.virginia.edu/degreeprograms"
 		}
@@ -162,8 +162,9 @@ function displayWork() {
 
 displayWork();
 
+//Projects
+
 projects.display = function() {
-//just display the first one
 	for (item in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 		var formattedProjTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
@@ -182,5 +183,37 @@ projects.display = function() {
 	}
 }
 projects.display();
+
+//Education
+
+education.displaySchools = function() {
+	if (education.schools.length > 0) {
+		for (entry in education.schools) {
+			$("#education").append(HTMLschoolStart);
+			var formattedName = HTMLschoolName.replace("%data%", education.schools[entry].name);
+			formattedName = formattedName.replace("#", education.schools[entry].url);
+			var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[entry].degree);
+			var formattedDate = HTMLschoolDates.replace("%data%", education.schools[entry].gradYear);
+			var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[entry].location);
+			var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[entry].majors[0]);
+			$(".education-entry:last").append(formattedName);
+			$(".education-entry:last").append(formattedDegree);
+			$(".education-entry:last").append(formattedDate);
+			$(".education-entry:last").append(formattedLocation);
+			$(".education-entry:last").append(formattedMajor);
+		}
+	}
+}
+
+education.displaySchools();
+ /*
+education.displayOnline = function() {
+	$("education").append(HTMLonlineClasses);
+
+
+
+}
+*/
+//Map
 
 $("#mapDiv").append(googleMap);
