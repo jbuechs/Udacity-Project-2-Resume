@@ -35,8 +35,6 @@ var bio = {
 	}
 };
 
-bio.display();
-
 var work = {
 	"jobs" : [
 		{
@@ -104,7 +102,25 @@ var projects = {
 			"description" : "A responsive portfolio built with HTML and CSS",
 			"images" : ["images/portfolio1.png", "images/portfolio2.png"]
 		}
-	]
+	],
+	display : function() {
+		for (item in projects.projects) {
+			$("#projects").append(HTMLprojectStart);
+			var formattedProjTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
+			var formattedProjDates = HTMLprojectDates.replace("%data%", projects.projects[item].dates);
+			var formattedProjDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
+			$(".project-entry:last").append(formattedProjTitle);
+			$(".project-entry:last").append(formattedProjDates);
+			$(".project-entry:last").append(formattedProjDescription);
+			if (projects.projects[item].images.length > 0) {
+				for (image in projects.projects[item].images)
+				{
+					var formattedProjImage = HTMLprojectImage.replace("%data%", projects.projects[item].images[image]);
+					$(".project-entry:last").append(formattedProjImage);
+				}
+			}
+		}
+	}
 };
 
 var education = {
@@ -193,36 +209,12 @@ var education = {
 
 
 //Header
-
-function displayBio () {
-
-}
-
-displayBio();
+bio.display();
 
 //Employment
 work.display();
 
 //Projects
-
-projects.display = function() {
-	for (item in projects.projects) {
-		$("#projects").append(HTMLprojectStart);
-		var formattedProjTitle = HTMLprojectTitle.replace("%data%", projects.projects[item].title);
-		var formattedProjDates = HTMLprojectDates.replace("%data%", projects.projects[item].dates);
-		var formattedProjDescription = HTMLprojectDescription.replace("%data%", projects.projects[item].description);
-		$(".project-entry:last").append(formattedProjTitle);
-		$(".project-entry:last").append(formattedProjDates);
-		$(".project-entry:last").append(formattedProjDescription);
-		if (projects.projects[item].images.length > 0) {
-			for (image in projects.projects[item].images)
-			{
-				var formattedProjImage = HTMLprojectImage.replace("%data%", projects.projects[item].images[image]);
-				$(".project-entry:last").append(formattedProjImage);
-			}
-		}
-	}
-}
 projects.display();
 
 //Education
