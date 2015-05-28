@@ -1,7 +1,7 @@
 var bio = {
 	"name" : "Jennie Buechner",
 	"role" : "Web Developer",
-	"welcomeMessage" : "I hope you enjoy this resume",
+	"welcomeMessage" : "I am an aspiring web developer. My career up to this point has been teaching, which has been extremely rewarding. I have been drawn to teaching students and teachers about technology and have finally come to the realization that I want to get deeper into learning to code, and not just scratch the surface.",
 	"contacts" : {
 		"mobile" : "+34 633 78 37 29",
 		"email" : "janina.buechner@gmail.com",
@@ -210,14 +210,25 @@ education.displaySchools = function() {
 }
 
 education.displaySchools();
- /*
+
 education.displayOnline = function() {
-	$("education").append(HTMLonlineClasses);
-
-
-
+	$("#education").append(HTMLonlineClasses);
+	if (education.onlineCourses.length > 0) {
+		for (entry in education.onlineCourses) {
+			$("#education").append(HTMLschoolStart);
+			var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[entry].title);
+			formattedTitle = formattedTitle.replace("#", education.onlineCourses[entry].url);
+			var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[entry].school);
+			var formattedDate = HTMLonlineDates.replace("%data%", education.onlineCourses[entry].dates);
+			$(".education-entry:last").append(formattedTitle);
+			$(".education-entry:last").append(formattedSchool);
+			$(".education-entry:last").append(formattedDate);
+		}
+	}
 }
-*/
+
+education.displayOnline();
+
 //Map
 
 $("#mapDiv").append(googleMap);
