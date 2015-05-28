@@ -32,6 +32,18 @@ var bio = {
 				$("#skills").append(formattedSkill);
 			}
 		}
+	},
+	displayContacts : function(contact) {
+		var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+		$(contact).append(formattedMobile);
+		var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+		$(contact).append(formattedEmail);
+		var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+		$(contact).append(formattedTwitter);
+		var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+		$(contact).append(formattedGithub);
+		var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+		$(contact).append(formattedLocation);
 	}
 };
 
@@ -225,18 +237,5 @@ education.display();
 $("#mapDiv").append(googleMap);
 
 // Contacts
-var displayContacts = function(contact) {
-	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$(contact).append(formattedMobile);
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-	$(contact).append(formattedEmail);
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$(contact).append(formattedTwitter);
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$(contact).append(formattedGithub);
-	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-	$(contact).append(formattedLocation);
-}
-
-displayContacts("#topContacts");
-displayContacts("#footerContacts");
+bio.displayContacts("#topContacts");
+bio.displayContacts("#footerContacts");
