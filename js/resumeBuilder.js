@@ -71,7 +71,23 @@ var work = {
 			"description" : "Taught grade 5 - language arts, math, and social studies. Wrote grant for school to receive 30 iBooks and $15,000 in funds for technology, professional development, and support. Led team of teachers in planning and implementing an inquiry-based instructional model",
 			"url" : "http://www2.k12albemarle.org/school/ahes/Pages/default.aspx"
 		}
-	]
+	],
+	display : function () {
+		for (job in work.jobs) {
+			$("#workExperience").append(HTMLworkStart);
+			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+			formattedEmployer = formattedEmployer.replace("#", work.jobs[job].url);
+			var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+			var fullJob = formattedEmployer + formattedTitle;
+			var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+			var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+			var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+			$(".work-entry:last").append(fullJob);
+			$(".work-entry:last").append(formattedDates);
+			$(".work-entry:last").append(formattedLocation);
+			$(".work-entry:last").append(formattedDescription);
+		}
+	}
 };
 
 var projects = {
@@ -98,7 +114,7 @@ var education = {
 			"location" : "Philadelphia, PA",
 			"degree" : "MS in Learning Technologies",
 			"majors" : ["Learning in Game-Based Environments"],
-			"gradYear" : 2013,
+			"dates" : 2013,
 			"url" : "http://www.drexel.com/online-degrees/education-degrees/ms-learningtech/index.aspx"
 		},
 		{
@@ -106,7 +122,7 @@ var education = {
 			"location" : "Charlottesville, VA",
 			"degree" : "Masters in Teaching",
 			"majors" : ["Elementary Education (k-8)"],
-			"gradYear" : 2002,
+			"dates" : 2002,
 			"url" : "http://curry.virginia.edu/academics/degrees/master-of-teaching/master-of-teaching-elementary-education"
 		},
 		{
@@ -114,7 +130,7 @@ var education = {
 			"location" : "Charlottesville, VA",
 			"degree" : "BA",
 			"majors" : ["Psychology"],
-			"gradYear" : 2002,
+			"dates" : 2002,
 			"url" : "http://college.artsandsciences.virginia.edu/degreeprograms"
 		}
 	],
@@ -145,7 +161,7 @@ var education = {
 				var formattedName = HTMLschoolName.replace("%data%", education.schools[entry].name);
 				formattedName = formattedName.replace("#", education.schools[entry].url);
 				var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[entry].degree);
-				var formattedDate = HTMLschoolDates.replace("%data%", education.schools[entry].gradYear);
+				var formattedDate = HTMLschoolDates.replace("%data%", education.schools[entry].dates);
 				var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[entry].location);
 				$(".education-entry:last").append(formattedName);
 				$(".education-entry:last").append(formattedDegree);
@@ -185,25 +201,7 @@ function displayBio () {
 displayBio();
 
 //Employment
-
-function displayWork() {
-	for (job in work.jobs) {
-		$("#workExperience").append(HTMLworkStart);
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		formattedEmployer = formattedEmployer.replace("#", work.jobs[job].url);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var fullJob = formattedEmployer + formattedTitle;
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		$(".work-entry:last").append(fullJob);
-		$(".work-entry:last").append(formattedDates);
-		$(".work-entry:last").append(formattedLocation);
-		$(".work-entry:last").append(formattedDescription);
-	}
-}
-
-displayWork();
+work.display();
 
 //Projects
 
