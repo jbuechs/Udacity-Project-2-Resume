@@ -162,16 +162,6 @@ function displayWork() {
 
 displayWork();
 
-function locationizer(work_obj) {
-	var locationArray = [];
-	for (job in work_obj.jobs) {
-		locationArray.push(work_obj.jobs[job].location);
-	}
-	return locationArray;
-}
-
-//$("#main").prepend(internationalizeButton);
-
 projects.display = function() {
 //just display the first one
 	for (item in projects.projects) {
@@ -182,11 +172,15 @@ projects.display = function() {
 		$(".project-entry:last").append(formattedProjTitle);
 		$(".project-entry:last").append(formattedProjDates);
 		$(".project-entry:last").append(formattedProjDescription);
-		for (image in projects.projects[item].images)
-		{
-			var formattedProjImage = HTMLprojectImage.replace("%data%", projects.projects[item].images[image]);
-			$(".project-entry:last").append(formattedProjImage);
+		if (projects.projects[item].images.length > 0) {
+			for (image in projects.projects[item].images)
+			{
+				var formattedProjImage = HTMLprojectImage.replace("%data%", projects.projects[item].images[image]);
+				$(".project-entry:last").append(formattedProjImage);
+			}
 		}
 	}
 }
 projects.display();
+
+$("#mapDiv").append(googleMap);
