@@ -218,3 +218,7 @@ span {
 .projectPic {
   max-height: 250px;
 }
+
+.arc path {
+  stroke: #fff;
+}
