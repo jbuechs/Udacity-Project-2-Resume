@@ -14,7 +14,28 @@ var bio = {
 				"programming",
 				"rugby"],
 	"biopic" : "images/jennie.jpg",
+	display : function() {
+		var formattedName = HTMLheaderName.replace("%data%", bio.name);
+		var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+		$("#header").prepend(formattedRole);
+		$("#header").prepend(formattedName);
+		var formattedPicture = HTMLbioPic.replace("%data%", bio.biopic);
+		var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+		$("#header").append(formattedPicture);
+		$("#header").append(formattedWelcome);
+		//Skills
+		if (bio.skills.length > 0) {
+			$("#header").append(HTMLskillsStart);
+			var formattedSkill = "";
+			for (skill in bio.skills) {
+				formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+				$("#skills").append(formattedSkill);
+			}
+		}
+	}
 };
+
+bio.display();
 
 var work = {
 	"jobs" : [
@@ -154,27 +175,11 @@ var education = {
 	}
 };
 
-education.display();
+
 //Header
 
 function displayBio () {
-	var formattedName = HTMLheaderName.replace("%data%", bio.name);
-	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	$("#header").prepend(formattedRole);
-	$("#header").prepend(formattedName);
-	var formattedPicture = HTMLbioPic.replace("%data%", bio.biopic);
-	var formattedWelcome = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-	$("#header").append(formattedPicture);
-	$("#header").append(formattedWelcome);
-	//Skills
-	if (bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
-		var formattedSkill = "";
-		for (skill in bio.skills) {
-			formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-			$("#skills").append(formattedSkill);
-		}
-	}
+
 }
 
 displayBio();
@@ -223,12 +228,7 @@ projects.display = function() {
 projects.display();
 
 //Education
-
-education.displaySchools = function() {
-
-}
-
-education.displaySchools();
+education.display();
 
 //Map
 
