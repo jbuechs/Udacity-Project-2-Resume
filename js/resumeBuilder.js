@@ -8,7 +8,9 @@ var bio = {
 		"twitter" : "@jbuechs",
 		"location" : "Madrid"
 	},
-	"welcomeMessage" : "I am an aspiring web developer. For the past 11 years, I have been a teacher, which has been extremely rewarding. Although I love teaching students and teachers about technology, I have come to the realization that I want to get deeper into learning to code.",
+	"welcomeMessage" : "I am an aspiring web developer. For the past 11 years, I have been a teacher," +
+		" which has been extremely rewarding. Although I love teaching students and teachers about" +
+		" technology, I have come to the realization that I want to get deeper into learning to code.",
 	"skills" : ["teaching",
 				"learning",
 				"programming",
@@ -54,7 +56,10 @@ var work = {
 			"title" : "Teacher and Technology Integration Specialist",
 			"location" : "Madrid, Spain",
 			"dates" : "2010-2015",
-			"description" : "Teacher: Taught IB Standard Level Information Technology in a Global Society (ITGS). Taught Middle School Game Design, Digital Storytelling, and Introduction to Programming Android Apps. Developed curriculum and created original courses to improve the school’s technology course offerings. Technology Integration Specialist: Trained teachers and evaluated technology options to meet individual and school-wide technology goals, including Moodle and Smartboard training. Contributed to increased technology integration, including implementation of Google Apps for Education and over 130 Wordpress blogs",
+			"description" : "Taught IB Standard Level Information Technology in a Global Society (ITGS)." +
+			" Taught Middle School Game Design, Digital Storytelling, and Introduction to Programming Android Apps." +
+			" Trained teachers and evaluated technology options including Moodle and Smartboard training. " +
+			"Contributed to increased technology use, including implementation of Google Apps for Education and over 130 Wordpress blogs",
 			"url" : "http://www.asmadrid.org/"
 		},
 		{
@@ -62,7 +67,10 @@ var work = {
 			"title" : "Technology Coordinator & MYP Teacher",
 			"location" : "Phnom Penh, Cambodia",
 			"dates" : "2006-2009",
-			"description" : "Technology Coordinator: Oversaw yearly technology budget and purchases through chairing the Technology Committee and participation in school-wide Leadership Team. Assisted in staff training and implementation of Blackbaud Administrative software. Presented workshops on a variety of topics to teachers on technology integration. MYP Technology Teacher: Created and taught MYP units to grades 6-10 students on digital audio, images/photography, publications, movies, websites, animation, and game making",
+			"description" : "Oversaw yearly technology budget and purchases through chairing  the Technology "+
+			"Committee and participation in school-wide Leadership Team. Presented workshops on a variety" +
+			" of topics to teachers on technology integration. Created and taught MYP units to grades 6-10 " +
+			"students on digital audio, images/photography, publications, movies, websites, animation, and game making",
 			"url" : "http://www.ispp.edu.kh/"
 		},
 		{
@@ -70,7 +78,8 @@ var work = {
 			"title" : "Math Teacher",
 			"location" : "Ablemarle County, VA",
 			"dates" : "2004-2006",
-			"description" : "Taught 7th grade math classes - regular and accelerated. Achieved National Board Certification in Mathematics, Early Adolescence.",
+			"description" : "Taught 7th grade math classes - regular and accelerated. Achieved National Board Certification" +
+			" in Mathematics, Early Adolescence.",
 			"url" : "http://www2.k12albemarle.org/school/hms/Pages/default.aspx"
 		},
 		{
@@ -78,7 +87,9 @@ var work = {
 			"title" : "Fifth Grade Teacher",
 			"location" : "Ablemarle County, VA",
 			"dates" : "2002-2004",
-			"description" : "Taught grade 5 - language arts, math, and social studies. Wrote grant for school to receive 30 iBooks and $15,000 in funds for technology, professional development, and support. Led team of teachers in planning and implementing an inquiry-based instructional model",
+			"description" : "Taught grade 5 - language arts, math, and social studies. Wrote grant for school to receive "+
+			"30 iBooks and $15,000 in funds for technology, professional development, and support. Led team of teachers "+
+			"in planning and implementing an inquiry-based instructional model",
 			"url" : "http://www2.k12albemarle.org/school/ahes/Pages/default.aspx"
 		}
 	],
