@@ -221,7 +221,7 @@ span {
   stroke: #fff;
 }
 
-/* Styled Breaks */
+/* Styled Breaks - I got this code from https://css-tricks.com/simple-styles-for-horizontal-rules/ */
 .fade-style {
     border: 0;
     margin: 20px 0 10px 0;
