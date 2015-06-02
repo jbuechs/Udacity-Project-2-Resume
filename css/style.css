@@ -1,0 +1,230 @@
+* {
+  padding:0;
+  margin:0;
+  font-family: 'Droid Sans', sans-serif;
+}
+
+#main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.education-entry, .work-entry, .project-entry {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 40px;
+  color: #dc3522;
+  line-height: 48px;
+  display: inline;
+}
+
+h2 {
+  font-family: 'PT Serif', serif;
+  font-size: 24px;
+  color: #2a2c2b;
+  line-height: 29px;
+  padding: 10px;
+}
+
+h3 {
+  font-family: 'PT Serif', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #000000;
+  line-height: 22px;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 14px;
+  color: #4A4A4A;
+  line-height: 17px;
+}
+
+h2, h3, h4, h5 {
+  padding:10px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+
+.date-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #374140;
+  line-height: 16px;
+  float: left;
+}
+
+.location-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #374140;
+  line-height: 16px;
+  float: right;
+
+}
+
+p {
+  font-size: 14px;
+  color: #333333;
+  line-height: 21px;
+}
+
+a {
+  color: #dc3522;
+  text-decoration: none;
+  margin-top: 10px;
+  display: block;
+}
+
+.welcome-message {
+  font-size: 18px;
+  color: #d9cb9e;
+  line-height: 28px;
+}
+
+#skillsH3 {
+  color: #dc3522;
+  display: none;
+}
+
+.red-background {
+  background-color: #dc3522;
+  border-radius: 10px 10px 0 0;
+}
+
+.red-text {
+  color: #dc3522;
+}
+
+.white-text {
+  color: #FFFFFF;
+}
+
+.gray {
+  background-color: #d9cb9e;
+  padding-bottom: 10px;
+  clear:both;
+}
+
+.dark-gray {
+  background-color: #4A4A4A;
+  border-radius: 10px;
+}
+
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.center-content {
+  padding-top: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2.5%
+}
+
+ul {
+  list-style-type: none;
+}
+
+.biopic {
+  float: left;
+  padding: 10px;
+  max-height: 200px;
+  display: none;
+}
+
+img {
+  padding: 10px;
+}
+
+span {
+  padding: 5px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+#map {
+  display: block;
+  height: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#mapDiv {
+  height: 400px;
+  width: 100%;
+  padding-bottom: 5%;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 299px) {
+  .white-text {
+    font-size: 14px;
+  }
+  .mobileHide {
+    display: none;
+  }
+  .projectPic {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .biopic {
+    height: 150px;
+  }
+}
+
+@media only screen and (min-width: 764px) {
+  #skillsH3,
+  .biopic,
+  .mediumShow {
+    display: block;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  .biopic {
+    height: 175px;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  .projectPic {
+    width: 400px;
+    display: inline;
+  }
+}
+
+/* Pie Chart */
+.arc path {
+  stroke: #fff;
+}
+
+/* Styled Breaks - I got this code from https://css-tricks.com/simple-styles-for-horizontal-rules/ */
+.fade-style {
+    border: 0;
+    margin: 20px 0 10px 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
