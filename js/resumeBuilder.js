@@ -1,22 +1,31 @@
-var bio = {
-	'name' : 'Jennie Buechner',
-	'role' : 'Web Developer',
-	'contacts' : {
-		'mobile' : '+34 633 78 37 29',
-		'email' : 'janina.buechner@gmail.com',
-		'github' : 'jbuechs',
-		'twitter' : '@jbuechs',
-		'location' : 'Madrid'
+var model = {
+	'bio' : {
+		'name' : 'Jennie Buechner',
+		'role' : 'Web Developer',
+		'contacts' : {
+			'mobile' : '+34 633 78 37 29',
+			'email' : 'janina.buechner@gmail.com',
+			'github' : 'jbuechs',
+			'twitter' : '@jbuechs',
+			'location' : 'Madrid'
+		},
+		'welcomeMessage' : 'I am an aspiring web developer. For the past 11 years, I have been a teacher,' +
+			' which has been extremely rewarding. Although I love teaching students and teachers about' +
+			' technology, I have come to the realization that my passion lies in learning to code.',
+		'skills' : ['teaching',
+					'learning',
+					'programming',
+					'rugby'],
+		'biopic' : 'images/jennie.jpg',
 	},
-	'welcomeMessage' : 'I am an aspiring web developer. For the past 11 years, I have been a teacher,' +
-		' which has been extremely rewarding. Although I love teaching students and teachers about' +
-		' technology, I have come to the realization that my passion lies in learning to code.',
-	'skills' : ['teaching',
-				'learning',
-				'programming',
-				'rugby'],
-	'biopic' : 'images/jennie.jpg',
-	display : function() {
+	'jobs' : {},
+	'projects' : {},
+	'schools' : {},
+};
+
+var view = {
+	displayBio : function(bio) {
+		console.log('displaying bio');
 		var formattedName = HTMLheaderName.replace('%data%', bio.name);
 		var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
 		$('#header').prepend(formattedRole);
@@ -35,7 +44,7 @@ var bio = {
 			}
 		}
 	},
-	displayContacts : function(contact) {
+	displayContacts : function(contact, bio) {
 		var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
 		$(contact).append(formattedMobile);
 		var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
@@ -46,7 +55,16 @@ var bio = {
 		$(contact).append(formattedGithub);
 		var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 		$(contact).append(formattedLocation);
-	}
+	},
+};
+
+var octopus = {
+	init : function() {
+		//Header
+		view.displayBio(model.bio);
+		view.displayContacts('#topContacts', model.bio);
+		view.displayContacts('#footerContacts', model.bio);
+	},
 };
 
 var work = {
@@ -230,9 +248,8 @@ var education = {
 	}
 };
 
+octopus.init();
 
-//Header
-bio.display();
 
 //Employment
 work.display();
@@ -247,5 +264,3 @@ education.display();
 $('#mapDiv').append(googleMap);
 
 // Contacts
-bio.displayContacts('#topContacts');
-bio.displayContacts('#footerContacts');
