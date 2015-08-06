@@ -61,7 +61,20 @@ var model = {
 			'url' : 'http://www2.k12albemarle.org/school/ahes/Pages/default.aspx'
 		}
 	],
-	'projects' : {},
+	'projects' : [
+		{
+			'title' : 'Resume Project',
+			'dates' : 'May 2015',
+			'description' : 'An interactive resume built with javascript',
+			'images' : ['images/resume1.png']
+		},
+		{
+			'title' : 'Portfolio Project',
+			'dates' : 'May 2015',
+			'description' : 'A responsive portfolio built with HTML and CSS',
+			'images' : ['images/portfolio1.png', 'images/portfolio2.png']
+		}
+	],
 	'schools' : {},
 };
 
@@ -113,6 +126,24 @@ var view = {
 			$('.work-entry:last').append(formattedDescription);
 		}
 	},
+	displayProjects : function(projects) {
+		for (var i = 0; i < projects.length; i++) {
+			$('#projects').append(HTMLprojectStart);
+			var formattedProjTitle = HTMLprojectTitle.replace('%data%', projects[i].title);
+			var formattedProjDates = HTMLprojectDates.replace('%data%', projects[i].dates);
+			var formattedProjDescription = HTMLprojectDescription.replace('%data%', projects[i].description);
+			$('.project-entry:last').append(formattedProjTitle);
+			$('.project-entry:last').append(formattedProjDates);
+			$('.project-entry:last').append(formattedProjDescription);
+			if (projects[i].images.length > 0) {
+				for (var j = 0; j < projects[i].images.length; j++)
+				{
+					var formattedProjImage = HTMLprojectImage.replace('%data%', projects[i].images[j]);
+					$('.project-entry:last').append(formattedProjImage);
+				}
+			}
+		}
+	},
 };
 
 var octopus = {
@@ -123,43 +154,11 @@ var octopus = {
 		view.displayContacts('#footerContacts', model.bio);
 		// Employment
 		view.displayJobs(model.jobs);
+		// Projects
+		view.displayProjects(model.projects);
 	},
 };
 
-var projects = {
-	'projects' : [
-		{
-			'title' : 'Resume Project',
-			'dates' : 'May 2015',
-			'description' : 'An interactive resume built with javascript',
-			'images' : ['images/resume1.png']
-		},
-		{
-			'title' : 'Portfolio Project',
-			'dates' : 'May 2015',
-			'description' : 'A responsive portfolio built with HTML and CSS',
-			'images' : ['images/portfolio1.png', 'images/portfolio2.png']
-		}
-	],
-	display : function() {
-		for (var i = 0; i < projects.projects.length; i++) {
-			$('#projects').append(HTMLprojectStart);
-			var formattedProjTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
-			var formattedProjDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
-			var formattedProjDescription = HTMLprojectDescription.replace('%data%', projects.projects[i].description);
-			$('.project-entry:last').append(formattedProjTitle);
-			$('.project-entry:last').append(formattedProjDates);
-			$('.project-entry:last').append(formattedProjDescription);
-			if (projects.projects[i].images.length > 0) {
-				for (var j = 0; j < projects.projects[i].images.length; j++)
-				{
-					var formattedProjImage = HTMLprojectImage.replace('%data%', projects.projects[i].images[j]);
-					$('.project-entry:last').append(formattedProjImage);
-				}
-			}
-		}
-	}
-};
 
 var education = {
 	'schools' : [
@@ -246,9 +245,6 @@ var education = {
 };
 
 octopus.init();
-
-//Projects
-projects.display();
 
 //Education
 education.display();
