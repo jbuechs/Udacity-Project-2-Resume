@@ -109,8 +109,8 @@ function initializeMap() {
 
     // iterates through work locations and appends each location to
     // the locations array
-    for (var job in work.jobs) {
-      locations.push(work.jobs[job].location);
+    for (var job in model.jobs) {
+      locations.push(model.jobs[job].location);
     }
 
     return locations;
